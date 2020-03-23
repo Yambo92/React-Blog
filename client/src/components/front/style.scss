@@ -4,15 +4,14 @@
     flex-direction: row;
     justify-content: center;
     height: 61vh;
-
+    padding-top: 20px;
+    background: #eee;
     .contentContainer{
         flex:1;
         display: flex;
         text-align: center;
         flex-direction: row;
-        padding-top: 20px;
         background-color: #eee;
-        opacity: .5;
         .content{
             width: 100%;
         }
@@ -22,7 +21,7 @@
         min-width: 450px;
         display: flex;
         justify-content: center;
-        background-color: rgba(200,231,184,.3);
+        background-color: #eee;
 
         .login-tabs{
             width: 100%;

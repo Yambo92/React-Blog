@@ -1,0 +1,17 @@
+.admin-header-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .username{
+        font-weight: bold;
+    }
+}
+
+.admin-userInfo-menu{
+    color: #666;
+    outline: none;
+    background-color: transparent;
+    &:hover{
+        color: #1890ff;
+    }
+}

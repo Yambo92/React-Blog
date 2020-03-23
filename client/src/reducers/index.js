@@ -21,11 +21,14 @@ export const actionsTypes = {
 }
 
 export const actions = {
-    get_login: function (username, password) {
+    get_login: function ({username, password}) {
         return {
             type: actionsTypes.USER_LOGIN,
-            username,
-            password
+            payload:{
+                username,
+                password
+            }
+           
         }
     },
     get_register: function (data) {

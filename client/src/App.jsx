@@ -14,7 +14,6 @@ import {notification,
 import {connect} from 'react-redux' 
 import {bindActionCreators} from 'redux'
 import {actions} from './reducers'
-
 const {clear_msg, user_auth} = actions
 
 const App = (props) => {
@@ -27,7 +26,7 @@ const App = (props) => {
    }
     return (
         <Router>
-            <div>
+            <div className="app-container">
                 <Switch>
                     <Route path="/404" component={NotFound} />
                     <Route path="/admin" component={Admin} />

@@ -15,7 +15,18 @@ export const actions = {
         return {
             type: actionTypes.GET_ALL_TAGS
         }
-
+    },
+    add_tag: function (tag) {
+        return {
+            type: actionTypes.ADD_TAG,
+            payload: {name:tag}
+        }
+    },
+    del_tag: function (tag) {
+        return{
+            type: actionTypes.DELETE_TAG,
+            payload: {name: tag}
+        } 
     }
 }
 

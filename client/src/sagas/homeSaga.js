@@ -2,6 +2,7 @@ import {put, take, call} from 'redux-saga/effects'
 import {actionsTypes as IndexActionTypes} from '../reducers'
 import {reqLogin, reqRegister, reqLogout} from '../api'
 import {message} from 'antd'
+
 export function* login({username, password}) {
     yield put({type:IndexActionTypes.FETCH_START});
     try{
@@ -29,7 +30,8 @@ export function* register(data) {
 export function* loginFlow() {
     while(true){
         let request = yield take(IndexActionTypes.USER_LOGIN);
-        let response = yield call(login, request.username, request.password);
+        // console.log('take():', request) //The result of yield take(pattern) is an action object being dispatched.
+        let response = yield call(login, request.payload);
         if(response&&response.code === 0){
             message.success('登录成功！')
             // yield put({type:IndexActionTypes.SET_MESSAGE, msgContent: "登录成功！", msgType:1});

@@ -10,7 +10,7 @@ module.exports = {
     entry: ["./client/src/index.js"],
     output: {
         path: path.resolve(__dirname, "client/dist"), 
-        // publicPath: "/",
+         publicPath: "/",
         filename: '[name]-[hash:8].js'
     },
     resolve: {

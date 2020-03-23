@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
+import {combineReducers, bindActionCreators} from 'redux'
 import {reducer as tags} from './adminManagerTags'
 
 export const actionTypes = {

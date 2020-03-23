@@ -9,7 +9,7 @@ router.get('/delTag', function (req, res) {
     let {name} = req.query;
     Tags.remove({name})
         .then(result => {
-            if(result.result.n === 1){
+            if(result.n === 1){
                 responseClient(res,200,0,'删除成功!')
             }else{
                 responseClient(res,200,1,'标签不存在');

@@ -1,0 +1,18 @@
+
+.admin-container{
+    height: 100vh;
+
+    .layout{
+        height: 100%;
+
+        .layout-header{
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .layout-footer{
+            text-align: center;
+            background-color: #eee;
+        }
+    }
+}

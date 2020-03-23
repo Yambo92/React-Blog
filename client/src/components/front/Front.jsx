@@ -12,6 +12,8 @@ import {actions as IndexActions} from '../../reducers'
 import {actions} from '../../reducers/adminManagerTags'
 import {actions as FrontActions} from '../../reducers/frontReducer'
 import Home from '../home/Home'
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 const {get_all_tags} = actions;
 const {get_article_list} = FrontActions
 
@@ -32,6 +34,7 @@ const Front = (props) => {
                        getArticleList={(tag)=>props.get_article_list(tag, 1)}
                 />
             </div>
+            <PerfectScrollbar>
             <div className='front-container'>
                 <div className="contentContainer">
                     <div className="content">
@@ -50,6 +53,7 @@ const Front = (props) => {
                        
                 </div>
             </div>
+           </PerfectScrollbar>
         </div>
     )
 }
