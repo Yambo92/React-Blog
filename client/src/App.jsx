@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Route,
     Switch
+    
 } from 'react-router-dom'
 import "./assets/style/minreset.sass"
 import NotFound from './components/notFound/NotFound'
@@ -28,6 +29,7 @@ const App = (props) => {
         <Router>
             <div className="app-container">
                 <Switch>
+                    <Route exact path="/" component={Front} />
                     <Route path="/404" component={NotFound} />
                     <Route path="/admin" component={Admin} />
                     <Route component={Front} />
@@ -54,3 +56,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
  export default connect(mapStateToProps, mapDispatchToProps)(App);
+

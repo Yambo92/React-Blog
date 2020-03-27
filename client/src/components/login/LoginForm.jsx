@@ -5,6 +5,7 @@ import React from 'react'
 
 const layout = {
     labelCol: {
+      offset: 2,
       span: 5,
     },
     wrapperCol: {

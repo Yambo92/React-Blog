@@ -3,6 +3,7 @@ import {actionsTypes as IndexActionTypes} from '../reducers'
 import {reqLogin, reqRegister, reqLogout} from '../api'
 import {message} from 'antd'
 
+
 export function* login({username, password}) {
     yield put({type:IndexActionTypes.FETCH_START});
     try{
@@ -33,6 +34,7 @@ export function* loginFlow() {
         // console.log('take():', request) //The result of yield take(pattern) is an action object being dispatched.
         let response = yield call(login, request.payload);
         if(response&&response.code === 0){
+            message.destroy()
             message.success('登录成功！')
             // yield put({type:IndexActionTypes.SET_MESSAGE, msgContent: "登录成功！", msgType:1});
             yield put({type:IndexActionTypes.RESPONSE_USER_INFO, data: response.data})
@@ -45,6 +47,7 @@ export function* registerFlow() {
         let request = yield take(IndexActionTypes.USER_REGISTER);
         let response = yield call(register, request.data);
         if(response&&response.code === 0){
+            message.destroy()
             message.success('注册成功！')
             // yield put({type:IndexActionTypes.SET_MESSAGE, msgContent:"注册成功！", msgType:1});
             yield put({type:IndexActionTypes.RESPONSE_USER_INFO, data:response.data})
@@ -78,7 +81,6 @@ export function* logoutFlow() {
          let response = yield call(reqLogout)
          if(response&&response.code === 0){
              yield put({type:IndexActionTypes.RESPONSE_USER_INFO, data: {}})
-             message.success('登出成功！')
          }
     }
 }

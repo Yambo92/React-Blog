@@ -7,8 +7,14 @@ export const reqLogin = ({...payload}) => ajax('/user/login', {...payload}, 'POS
 /*注册用户*/
 export const reqRegister = (data) => ajax('/user/register', data, 'POST') 
 
+/*删除用户*/
+export const reqRemoveUser = (_id) => ajax('/user/deluser', {_id}, 'POST')
+
 /*用户登录状态验证*/ 
 export const reqUserAuth = () => ajax('/user/userInfo')
+
+/* 获取用户信息 */ 
+export const reqGetAllUsers = (pageNum=1) => ajax('/admin/getUsers', {pageNum})
 
 /*退出登录*/ 
 export const reqLogout = () => ajax('/user/logout')

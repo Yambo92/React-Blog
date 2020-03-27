@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux'
-import {reducer as front} from './frontReducer'
-import admin from './admin'
+import {combineReducers} from 'redux';
+import {reducer as front} from './frontReducer';
+import {admin} from './admin';
 const initialState = {
     isFetching: false,
     msg:{

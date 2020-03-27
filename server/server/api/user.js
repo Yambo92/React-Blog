@@ -3,6 +3,7 @@ const router = Express.Router();
 import User from '../../models/user'
 import {MD5_SUFFIX,responseClient,md5} from '../util'
 
+
 /**
  *定义回复模板
  */
@@ -101,5 +102,18 @@ router.get('/logout',function (req,res) {
     // res.redirect('/');
     responseClient(res, 200, 0, '登出成功');
 });
+
+//删除用户
+router.post('/deluser', function (req, res) {
+    let idList = [];
+    idList = eval(req.body._id);
+    User.deleteMany({_id: {$in: idList}}, function(err){
+        if(err){
+            responseClient(res);
+        }else{
+            responseClient(res,200,0,'', {data: "删除成功"})
+        }
+    })
+})
 
 module.exports = router;

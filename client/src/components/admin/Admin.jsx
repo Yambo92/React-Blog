@@ -12,7 +12,7 @@ import "./style.scss";
 import { AdminHome } from "../../page/adminHome/AdminHome";
 import { AdminManagerArticle } from "../../page/adminManagerArticle/AdminManagerArticle";
 import  AdminManagerTags  from "../../page/adminManagerTags/AdminManagerTags";
-import { AdminManagerUser } from "../../page/adminManagerUser/AdminManagerUser";
+import  AdminManagerUser  from "../../page/adminManagerUser/AdminManagerUser";
 import { AdminNewArticle } from "../../page/adminNewArticle/AdminNewArticle";
 import { AdminManagerComment } from "../../page/adminManagerComment/AdminManagerComment";
 import {AdminHeader} from '../adminHeader/AdminHeader'

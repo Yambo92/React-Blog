@@ -5,7 +5,8 @@ import React, { useEffect } from 'react'
 
 const layout = {
     labelCol: {
-      span: 5,
+        offset:2,
+      span: 6,
     },
     wrapperCol: {
       span: 14,

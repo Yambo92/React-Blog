@@ -1,4 +1,3 @@
-import { actionsTypes } from ".";
 
 const initialState = {
     list: [],
@@ -8,14 +7,21 @@ const initialState = {
 
 export const actionTypes = {
     'GET_ALL_USER': "GET_ALL_USER",
-    "RESOLVE_GET_ALL_USERS":"RESOLVE_GET_ALL_USERS"
+    "RESOLVE_GET_ALL_USERS":"RESOLVE_GET_ALL_USERS",
+    "DEL_USER": "DEL_USER"
 };
 
 export const actions = {
     get_all_users: function (pageNum=1) {
         return {
-            type: actionsTypes.GET_ALL_USER,
+            type: actionTypes.GET_ALL_USER,
             pageNum: pageNum
+        }
+    },
+    del_user: function (ids) {
+        return {
+            type: actionTypes.DEL_USER,
+            ids
         }
     }
 }
@@ -25,8 +31,7 @@ export function users(state=initialState, action) {
         case actionTypes.RESOLVE_GET_ALL_USERS:
             return {
                 list: action.data.list,
-                pageNum: action.data.pageNum,
-                total: action.data.total
+                total: Number(action.data.total)
             };
         default:
             return state;

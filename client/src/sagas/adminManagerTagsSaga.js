@@ -23,14 +23,9 @@ export function* getAllTagsFlow() {
            
             yield put({type:ManagerTagsTypes.SET_TAGS, data: res.data})
         }else if(res.message === '身份信息已过期，请重新登录'){
+            location.replace('/')
             message.error(res.message)
-            setTimeout(() => {
-                location.replace('/')
-            }, 1000);
             yield put({type: IndexActionTypes.USER_LOGOUT})
-            
-                
-        
         }else{
             message.error(res.message)
         }
@@ -56,15 +51,9 @@ export function* addTagFlow() {
         if(res.code === 0){
             yield put({type:ManagerTagsTypes.GET_ALL_TAGS})
         }else if(res.message === '身份信息已过期，请重新登录'){
+            location.replace('/')
             message.error(res.message)
-            setTimeout(() => {
-                location.replace('/')
-            }, 1000);
-            
             yield put({type: IndexActionTypes.USER_LOGOUT})
-            
-           
-        
         }else{
             message.error(res.message)
         }
@@ -92,13 +81,9 @@ export function* delTagFlow() {
             message.success("删除成功！")
             yield put({type:ManagerTagsTypes.GET_ALL_TAGS})
         }else if(res.message === '身份信息已过期，请重新登录'){
+            location.replace('/')
             message.error(res.message)
-            setTimeout(() => {
-                location.replace('/')
-            }, 1000);
-           
             yield put({type: IndexActionTypes.USER_LOGOUT})
-         
         }else{
             message.error(res.message)
         }
