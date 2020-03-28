@@ -13,13 +13,14 @@ import { AdminHome } from "../../page/adminHome/AdminHome";
 import { AdminManagerArticle } from "../../page/adminManagerArticle/AdminManagerArticle";
 import  AdminManagerTags  from "../../page/adminManagerTags/AdminManagerTags";
 import  AdminManagerUser  from "../../page/adminManagerUser/AdminManagerUser";
-import { AdminNewArticle } from "../../page/adminNewArticle/AdminNewArticle";
+import  AdminNewArticle  from "../../page/adminNewArticle/AdminNewArticle";
 import { AdminManagerComment } from "../../page/adminManagerComment/AdminManagerComment";
 import {AdminHeader} from '../adminHeader/AdminHeader'
 const { Header, Footer, Sider, Content } = Layout;
 const { change_location_admin } = actions;
 const {get_logout} = IndexActions
 function Admin(props) {
+  
   const { url } = props.match;
 
 

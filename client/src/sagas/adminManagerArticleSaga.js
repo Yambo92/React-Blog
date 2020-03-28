@@ -1,7 +1,7 @@
-import {call, take, put, select} from 'redux-saga/effects'
+import {call, take, put, delay} from 'redux-saga/effects'
 import {actionsTypes as IndexActionTypes} from '../reducers'
 import {actionTypes as ArticleTypes} from '../reducers/adminManagerArticle'
-import {reqArticleLists} from '../api'
+import {reqArticleLists, reqAddNewArticle, reqLogout} from '../api'
 import {message} from 'antd'
 export function* getArticleList(pageNum){
     yield put({type: IndexActionTypes.FETCH_START})
@@ -31,5 +31,41 @@ export function* getArticleListFlow() {
                 message.error(res.message)
             }
         }
+    }
+}
+
+export function* addNewArticle(data){
+    yield put({type: IndexActionTypes.FETCH_START})
+    try{
+        return yield call(reqAddNewArticle, data)
+    }catch(error){
+        message.destroy()
+        message.error('请求发送失败')
+    }finally{
+        yield put({type: IndexActionTypes.FETCH_END})
+    }
+}
+
+export function* addNewArticleFlow() {
+    while(true){
+        let req = yield take(ArticleTypes.ADMIN_ADD_ARTICLE)
+        let res = yield call(addNewArticle, req.datas)
+        if(res&&res.code===0){
+            message.destroy()
+            message.success('文章创建成功！')
+        }else if(res.message === '身份信息已过期，请重新登录'){
+            message.destroy()
+            message.error(res.message)
+            yield delay(500)
+            let response = yield call(reqLogout)
+            if(response&&response.code === 0){
+                yield put({type:IndexActionTypes.RESPONSE_USER_INFO, data: {}})
+               location.replace('/')   
+            }
+
+        } else{
+                message.destroy()
+                message.error(res.message)
+            }
     }
 }

@@ -33,3 +33,6 @@ export const reqDelTag = (payload) => ajax('/admin/tags/delTag', {...payload})
 
 /*获取文章列表*/ 
 export const reqArticleLists = ({tag, pageNum, pageSize,isPublish=true}) => ajax('/getArticles',{tag,pageNum,pageSize, isPublish})
+
+/*发布文章*/ 
+export const reqAddNewArticle = ({...data}) => ajax('/admin/article/addArticle',{...data}, 'POST')
