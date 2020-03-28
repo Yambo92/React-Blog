@@ -35,10 +35,10 @@ router.post('/login', (req, res) => {
             responseClient(res, 200, 0, '登录成功', data);
             return;
         }
-        responseClient(res, 400, 1, '用户名密码错误');
+        responseClient(res, 200, 1, '用户名密码错误');
 
     }).catch(err => {
-        responseClient(res);
+        responseClient(res, 200, 1, '用户名密码错误');
     })
 });
 
@@ -113,6 +113,19 @@ router.post('/deluser', function (req, res) {
         }else{
             responseClient(res,200,0,'', {data: "删除成功"})
         }
+    })
+})
+//修改用户角色
+router.post('/changeRole', function (req, res) {
+    let _id = req.body._id;
+    let type = req.body.type
+    User.findOneAndUpdate(
+        { _id: _id},{type: type},{new: true, runValidators: true}
+    ).then(doc => {
+        responseClient(res,200,0,'', {data: doc})
+    })
+    .catch(err => {
+        responseClient(res,200,1,'更新失败',err.message)
     })
 })
 

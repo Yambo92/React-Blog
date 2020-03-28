@@ -10,6 +10,9 @@ export const reqRegister = (data) => ajax('/user/register', data, 'POST')
 /*删除用户*/
 export const reqRemoveUser = (_id) => ajax('/user/deluser', {_id}, 'POST')
 
+/* 更新用户角色 */ 
+export const reqChangeRole = (_id,type) => ajax('/user/changeRole', {_id, type}, 'POST')
+
 /*用户登录状态验证*/ 
 export const reqUserAuth = () => ajax('/user/userInfo')
 

@@ -9,7 +9,7 @@ export function* login({username, password}) {
     try{
         return yield call(reqLogin, {username, password})
     }catch(error){
-        message.error("用户名或密码错误")
+        message.error("请求出错")
         // yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: "用户名或密码错误",msgType:0})
     }finally{
         yield put({type:IndexActionTypes.FETCH_END})
@@ -38,6 +38,12 @@ export function* loginFlow() {
             message.success('登录成功！')
             // yield put({type:IndexActionTypes.SET_MESSAGE, msgContent: "登录成功！", msgType:1});
             yield put({type:IndexActionTypes.RESPONSE_USER_INFO, data: response.data})
+        }else if(response&&response.code=== 1){
+            message.destroy()
+            message.error(response.message) 
+        }else{
+            message.destroy()
+            message.error(response.message) 
         }
     }
 }

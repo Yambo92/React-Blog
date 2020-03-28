@@ -8,7 +8,8 @@ const initialState = {
 export const actionTypes = {
     'GET_ALL_USER': "GET_ALL_USER",
     "RESOLVE_GET_ALL_USERS":"RESOLVE_GET_ALL_USERS",
-    "DEL_USER": "DEL_USER"
+    "DEL_USER": "DEL_USER",
+    "CHANGE_ROLE": "CHANGE_ROLE"
 };
 
 export const actions = {
@@ -22,6 +23,12 @@ export const actions = {
         return {
             type: actionTypes.DEL_USER,
             ids
+        }
+    },
+    change_role: function(_id, type){
+        return {
+            type: actionTypes.CHANGE_ROLE,
+            datas: {_id, type}
         }
     }
 }
