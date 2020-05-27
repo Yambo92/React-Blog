@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Route,
     Switch
-    
 } from 'react-router-dom'
 import "./assets/style/minreset.sass"
 import NotFound from './components/notFound/NotFound'
